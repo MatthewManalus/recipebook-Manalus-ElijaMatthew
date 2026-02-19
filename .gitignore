@@ -16,5 +16,8 @@ venv/
 .venv/
 env/
 
+# Secrets
+.env
+
 # macOS
 .DS_Store
