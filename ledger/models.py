@@ -13,6 +13,7 @@ class Ingredient(models.Model):
     def get_absolute_url(self) -> str:
         return reverse("ledger:ingredient-detail", kwargs={"pk": self.pk})
 
+
 class Profile(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
