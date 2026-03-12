@@ -48,6 +48,19 @@ class Recipe(models.Model):
         return reverse("ledger:recipe-detail", kwargs={"pk": self.pk})
 
 
+class RecipeImage(models.Model):
+    image = models.ImageField(upload_to="recipe_images/")
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name="images",
+    )
+
+    def __str__(self) -> str:
+        return f"{self.recipe.name} image"
+
+
 class RecipeIngredient(models.Model):
     quantity = models.CharField(max_length=255)
 
